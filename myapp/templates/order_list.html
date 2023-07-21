@@ -1,0 +1,43 @@
+<!-- order_list.html -->
+
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Список заказов</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/order_list.css' %}">
+</head>
+<body>
+    <div class="center-content">
+        <h1>Список заказов</h1>
+        {% if orders %}
+            <table>
+                <tr>
+                    <th>Товар</th>
+                    <th>Количество</th>
+                    <th>Статус</th>
+                    <th>Настройки</th>
+                </tr>
+                {% for order in orders %}
+                    <tr>
+                        <td>{{ order.product.name }}</td>
+                        <td>{{ order.order_quantity }}</td>
+                        <td>{{ order.get_order_status_display }}</td>
+                        <td>
+                            <a href="{% url 'edit_order' order.id %}">Редактировать</a> |
+                            <a href="{% url 'delete_order' order.id %}">Удалить</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </table>
+        {% else %}
+            <p>Нет заказов.</p>
+        {% endif %}
+    </div>
+
+    <div class="center-content">
+        <a href="{% url 'add_order' %}">Создать заказ</a>
+    </div>
+</body>
+</html>

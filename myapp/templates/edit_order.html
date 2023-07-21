@@ -1,0 +1,18 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Order</title>
+    <link rel="stylesheet" href="{% static 'css/supplier_list.css' %}">
+</head>
+<body>
+    <div class="center-content"> <!-- Add the .center-content class to center the content vertically -->
+        <h1>Edit Order</h1>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Save Changes</button>
+        </form>
+    </div>
+</body>
+</html>

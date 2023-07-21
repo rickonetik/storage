@@ -1,0 +1,17 @@
+<!-- myapp/templates/delete_supplier.html -->
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Delete Supplier</title>
+</head>
+<body>
+    <h1>Delete Supplier</h1>
+    <p>Are you sure you want to delete the supplier "{{ supplier.name }}"?</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Delete</button>
+    </form>
+    <a href="{% url 'supplier_list' %}">Cancel</a>
+</body>
+</html>

@@ -1,0 +1,19 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Delete Order</title>
+    <link rel="stylesheet" href="{% static 'css/supplier_list.css' %}">
+</head>
+<body>
+    <div class="center-content"> <!-- Add the .center-content class to center the content vertically -->
+        <h1>Delete Order</h1>
+        <p>Are you sure you want to delete the order for {{ order.product.name }}?</p>
+        <form method="post">
+            {% csrf_token %}
+            <button type="submit">Yes, Delete</button>
+        </form>
+        <a href="{% url 'order_list' %}">Cancel</a>
+    </div>
+</body>
+</html>

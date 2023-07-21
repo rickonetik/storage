@@ -1,0 +1,42 @@
+<!-- myapp/templates/main_page.html -->
+
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Main Page</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main_page.css' %}">
+    <script type="text/javascript" src="{% static 'js/main_page.js' %}"></script>
+</head>
+<body>
+    <h1>Добро пожаловать на РСУС!</h1>
+    <a>Выберите интересующий вас пункт:</a>
+    <div class="square-container">
+        <div class="square">
+            <div onmouseout="resetSquareSize(this)" class="square" onmouseover="enlargeSquare(this)">
+                <a href="{% url 'product_list' %}">Товары на складе</a> </div>
+        </div>
+        <div class="square">
+            <div onmouseout="resetSquareSize(this)" class="square" onmouseover="enlargeSquare(this)">
+                <a href="{% url 'add_employee' %}">Список сотрудников</a> </div>
+        </div>
+        <div class="square">
+            <div onmouseout="resetSquareSize(this)" class="square" onmouseover="enlargeSquare(this)">
+                <a href="{% url 'order_list' %}">Список заказов</a> </div>
+        </div>
+        <div class="square">
+            <div onmouseout="resetSquareSize(this)" class="square" onmouseover="enlargeSquare(this)">
+                <a href="{% url 'supplier_list' %}">Список поставщиков</a> </div>
+        </div>
+        <div class="square">
+            <div onmouseout="resetSquareSize(this)" class="square" onmouseover="enlargeSquare(this)">
+                <a href="{% url 'add_order' %}">Создать заказ</a> </div>
+        </div>
+        <div class="square">
+            <div onmouseout="resetSquareSize(this)" class="square" onmouseover="enlargeSquare(this)">
+                <a href="{% url 'initial_page' %}">Выйти из профиля</a>
+        </div>
+    </div>
+</body>
+</html>

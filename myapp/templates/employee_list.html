@@ -1,0 +1,38 @@
+<!-- myapp/templates/employee_list.html -->
+
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Employee List</title>
+    <link rel="stylesheet" href="{% static 'css/supplier_list.css' %}">
+</head>
+<body>
+    <div class="center-content">
+        <h1>Список сотрудников</h1>
+        {% if employees %}
+            <table>
+                <tr>
+                    <th>Имя сотрудника</th>
+                    <th>Настройка</th> <!-- New column for delete buttons -->
+                </tr>
+                {% for employee in employees %}
+                    <tr>
+                        <td>{{ employee.username }}</td>
+                        <td>
+                            <form method="post" action="{% url 'delete_employee' employee.id %}">
+                                {% csrf_token %}
+                                <button type="submit">Delete</button>
+                            </form>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </table>
+        {% else %}
+            <p>Нет сотрудников, хотите добавить?</p>
+        {% endif %}
+        <a href="{% url 'add_employee' %}">Добавить сотрудника</a>
+    </div>
+</body>
+</html>

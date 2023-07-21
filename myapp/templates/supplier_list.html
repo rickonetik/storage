@@ -1,0 +1,42 @@
+<!-- myapp/templates/supplier_list.html -->
+
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Список поставщиков</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/supplier_list.css' %}">
+</head>
+<body>
+    <div class="center-content">
+        <h1>Список поставщиков</h1>
+        {% if suppliers %}
+            <table>
+                <thead>
+                    <tr>
+                        <th>Имя</th>
+                        <th>Почта</th>
+                        <th>Телефон</th>
+                        <th>Удаление</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for supplier in suppliers %}
+                        <tr>
+                            <td>{{ supplier.name }}</td>
+                            <td>{{ supplier.email }}</td>
+                            <td>{{ supplier.phone }}</td>
+                            <td><a href="{% url 'delete_supplier' supplier.pk %}">Delete</a></td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p>Нет поставщиков, хотите добавить?</p>
+        {% endif %}
+
+        <a href="{% url 'add_supplier' %}">Добавить поставщика</a>
+    </div>
+</body>
+</html>

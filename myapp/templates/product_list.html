@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Product List</title>
+    <link rel="stylesheet" href="{% static 'css/supplier_list.css' %}">
+</head>
+<body>
+    <div class="center-content"> <!-- Add the .center-content class to center the table vertically -->
+        <!-- Display the list of products here -->
+        <h1>Список товаров</h1>
+        <table>
+            <tr>
+                <th>Название</th>
+                <th>Категория</th>
+                <th>Описание</th>
+                <th>Количество</th>
+                <th>Настройки</th>
+            </tr>
+            {% for product in products %}
+            <tr>
+                <td>{{ product.name }}</td>
+                <td>{{ product.category }}</td>
+                <td>{{ product.description }}</td>
+                <td>{{ product.quantity }}</td>
+                <td>
+                    <a href="{% url 'edit_product' product.id %}">Редактировать</a>
+                    <form method="post" action="{% url 'delete_product' product.id %}">
+                        {% csrf_token %}
+                        <button type="submit">Удалить</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+        <a href="{% url 'add_product' %}">Добавить продукт</a>
+    </div>
+</body>
+</html>

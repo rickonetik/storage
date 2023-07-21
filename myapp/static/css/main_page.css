@@ -1,0 +1,49 @@
+/* myapp/static/css/main_page.css */
+
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 85vh;
+    font-size: 20px;
+    background-color: #383838; /* Light gray background */
+}
+
+h1 {
+    color: white;
+    margin-top: 20px;
+}
+
+a {
+    color: white;
+}
+
+
+.square-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 800px;
+    margin-top: 20px;
+}
+
+.square {
+    width: 250px;
+    height: 100px;
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #696969;
+    border-radius: 10px;
+}
+
+.square a {
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    padding: 15px;
+}

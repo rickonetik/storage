@@ -1,0 +1,45 @@
+<!-- task_list.html -->
+
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Список задач</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/task_list.css' %}">
+</head>
+<body>
+    <div class="center-content">
+        <h1>Список задач</h1>
+    </div>
+
+    {% if tasks %}
+        <table>
+            <tr>
+                <th>Заголовок</th>
+                <th>Описание</th>
+                <th>Назначено</th>
+                <th>Статус</th>
+            </tr>
+            {% for task in tasks %}
+                <tr>
+                    <td>{{ task.title }}</td>
+                    <td>{{ task.description }}</td>
+                    <td>{{ task.assigned_to }}</td>
+                    <td>
+                        {% if task.completed %}
+                            Выполнено
+                        {% else %}
+                            Не выполнено
+                        {% endif %}
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <div class="center-content">
+            <p>Нет задач.</p>
+        </div>
+    {% endif %}
+</body>
+</html>

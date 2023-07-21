@@ -1,0 +1,47 @@
+/* myapp/static/css/order_list.css */
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #383838;
+    color: white; /* Set the default text color to white */
+}
+
+.center-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Change min-height to 100vh to center vertically */
+    flex-direction: column;
+}
+
+table {
+    border-collapse: collapse;
+    width: 80%;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+th {
+    background-color: #696969;
+}
+
+tr:nth-child(even) {
+    background-color: #696969;
+}
+
+a {
+    color: white;
+}
+
+.heading {
+    margin-bottom: 20px;
+}
+
+.create-link {
+    position: absolute;
+    bottom: 20px;
+}

@@ -1,0 +1,19 @@
+<!-- myapp/templates/add_employee.html -->
+
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Добавить сотрудника</title>
+</head>
+<body>
+    <h1>Добавить сотрудника</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Add</button>
+    </form>
+    <a href="{% url 'employee_list' %}">Cancel</a>
+</body>
+</html>

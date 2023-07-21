@@ -1,0 +1,31 @@
+<!-- add_task.html -->
+
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Добавить задачу</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/task_list.css' %}">
+</head>
+<body>
+    <div class="center-content">
+        <h1>Добавить задачу</h1>
+    </div>
+
+    <div class="center-content">
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <label for="id_assigned_to">Назначено:</label>
+            <select name="assigned_to" multiple>
+                {% for employee in employees %}
+                    <option value="{{ employee.id }}">{{ employee.user.username }}</option>
+                {% endfor %}
+            </select>
+            <br>
+            <button type="submit">Создать</button>
+        </form>
+    </div>
+</body>
+</html>
